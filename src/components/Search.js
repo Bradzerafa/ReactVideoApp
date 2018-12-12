@@ -11,7 +11,10 @@ class Search extends React.Component {
 
   render() {
     return (
-      <form className=" ui input focus " onSubmit={this.input}>
+      <form
+        className=" ui input huge focus search-input "
+        onSubmit={this.input}
+      >
         <input
           type="text"
           placeholder="Search videos"
