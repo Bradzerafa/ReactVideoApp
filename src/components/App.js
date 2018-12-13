@@ -13,7 +13,8 @@ class App extends React.Component {
     title: "",
     description: "",
     date: null,
-    link: ""
+    link: "",
+    iframe: ""
   };
 
   apiCall = searchWord => {
@@ -32,8 +33,7 @@ class App extends React.Component {
           title: res.data.items[0].snippet.title,
           description: res.data.items[0].snippet.description,
           date: res.data.items[0].snippet.publishedAt,
-          link:
-            "https://www.youtube.com/watch?v=" + res.data.items[0].id.videoId
+          link: "https://www.youtube.com/embed/" + res.data.items[0].id.videoId
         })
       );
   };
@@ -41,6 +41,10 @@ class App extends React.Component {
   searchDate = data => {
     this.setState({ searchWord: data });
     this.apiCall(data);
+  };
+
+  videoPlayer = data => {
+    this.setState({ iframe: data });
   };
 
   render() {
@@ -55,43 +59,57 @@ class App extends React.Component {
       );
     }
 
-    if (this.state.video !== "") {
+    if (this.state.video !== "" && this.state.iframe === "") {
       return (
         <div className="overall">
-          <div className="container">
-            <Search onSubmit={this.searchDate} />
-            <VideoList
-              video={this.state.video}
-              title={this.state.title}
-              description={this.state.description}
-              link={this.state.link}
-            />
-            <VideoList
-              video={this.state.video}
-              title={this.state.title}
-              description={this.state.description}
-              link={this.state.link}
-            />
-            <VideoList
-              video={this.state.video}
-              title={this.state.title}
-              description={this.state.description}
-              link={this.state.link}
-            />
-            <VideoList
-              video={this.state.video}
-              title={this.state.title}
-              description={this.state.description}
-              link={this.state.link}
-            />
-            <VideoList
-              video={this.state.video}
-              title={this.state.title}
-              description={this.state.description}
-              link={this.state.link}
-            />
+          <div className="container-videos">
+            <div className="search-bar__videos">
+              <Search onSubmit={this.searchDate} />
+            </div>
+            <div className="video-listing">
+              <VideoList
+                onClick={this.videoPlayer}
+                video={this.state.video}
+                title={this.state.title}
+                description={this.state.description}
+                link={this.state.link}
+              />
+              <VideoList
+                video={this.state.video}
+                title={this.state.title}
+                description={this.state.description}
+                link={this.state.link}
+              />
+              <VideoList
+                video={this.state.video}
+                title={this.state.title}
+                description={this.state.description}
+                link={this.state.link}
+              />
+              <VideoList
+                video={this.state.video}
+                title={this.state.title}
+                description={this.state.description}
+                link={this.state.link}
+              />
+              <VideoList
+                video={this.state.video}
+                title={this.state.title}
+                description={this.state.description}
+                link={this.state.link}
+              />
+            </div>
             <div />
           </div>
+        </div>
+      );
+    }
+
+    if (this.state.iframe !== "") {
+      return (
+        <div>
+          <VideoList />
+          <h1>hello</h1>
         </div>
       );
     }
