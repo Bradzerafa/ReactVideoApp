@@ -9,7 +9,8 @@ const apiKey = "";
 
 class App extends React.Component {
   state = {
-    video: "",
+    videos: [],
+    thumbnail: "",
     title: "",
     description: "",
     date: null,
@@ -29,18 +30,18 @@ class App extends React.Component {
       })
       .then(res =>
         this.setState({
-          video: res.data.items[0].snippet.thumbnails.default.url,
-          title: res.data.items[0].snippet.title,
-          description: res.data.items[0].snippet.description,
-          date: res.data.items[0].snippet.publishedAt,
-          link: "https://www.youtube.com/embed/" + res.data.items[0].id.videoId
+          videos: res.data.items
         })
       );
   };
 
   searchDate = data => {
-    this.setState({ searchWord: data });
-    this.apiCall(data);
+    if (data !== "") {
+      this.setState({ searchWord: data });
+      this.apiCall(data);
+    } else {
+      console.log("Please enter something into the search bar");
+    }
   };
 
   videoPlayer = data => {
@@ -48,7 +49,7 @@ class App extends React.Component {
   };
 
   render() {
-    if (this.state.video === "") {
+    if (this.state.videos.length === 0) {
       return (
         <div className="overall">
           <div className="container">
@@ -59,7 +60,7 @@ class App extends React.Component {
       );
     }
 
-    if (this.state.video !== "" && this.state.iframe === "") {
+    if (this.state.videos.length !== 0 && this.state.iframe === "") {
       return (
         <div className="overall">
           <div className="container-videos">
@@ -67,37 +68,7 @@ class App extends React.Component {
               <Search onSubmit={this.searchDate} />
             </div>
             <div className="video-listing">
-              <VideoList
-                onClick={this.videoPlayer}
-                video={this.state.video}
-                title={this.state.title}
-                description={this.state.description}
-                link={this.state.link}
-              />
-              <VideoList
-                video={this.state.video}
-                title={this.state.title}
-                description={this.state.description}
-                link={this.state.link}
-              />
-              <VideoList
-                video={this.state.video}
-                title={this.state.title}
-                description={this.state.description}
-                link={this.state.link}
-              />
-              <VideoList
-                video={this.state.video}
-                title={this.state.title}
-                description={this.state.description}
-                link={this.state.link}
-              />
-              <VideoList
-                video={this.state.video}
-                title={this.state.title}
-                description={this.state.description}
-                link={this.state.link}
-              />
+              <VideoList videos={this.state.videos} />
             </div>
             <div />
           </div>
