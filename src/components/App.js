@@ -26,7 +26,8 @@ class App extends React.Component {
       })
       .then(res =>
         this.setState({
-          videos: res.data.items
+          videos: res.data.items,
+          selectedVideo: res.data.items[0]
         })
       );
   };
@@ -56,7 +57,7 @@ class App extends React.Component {
 
     if (this.state.videos.length > 0) {
       return (
-        <div className="ui container">
+        <div className="ui container all">
           <div className="search-bar__videos">
             <Search onSubmit={this.searchDate} />
           </div>

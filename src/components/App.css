@@ -1,3 +1,6 @@
+.all {
+  padding: 2%;
+}
 .overall {
   display: grid;
   grid-template-rows: 100vh;
@@ -19,7 +22,7 @@
 /* After video list renders */
 
 .search-bar__videos {
-  margin: 4% 0 5% 0;
+  margin: 0 0 5% 0;
 }
 
 .ui.items:first-child {
@@ -28,4 +31,8 @@
 
 .ui.grid > .row {
   padding-bottom: 0;
+}
+
+.heading {
+  align-self: center;
 }
