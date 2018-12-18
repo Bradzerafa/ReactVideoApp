@@ -6,7 +6,7 @@ import axios from "axios";
 import "./App.css";
 
 // ENTER API KEY HERE!!!
-const apiKey = "";
+const apiKey = " ";
 
 class App extends React.Component {
   state = {
@@ -34,7 +34,6 @@ class App extends React.Component {
 
   searchDate = data => {
     if (data !== "") {
-      this.setState({ searchWord: data });
       this.apiCall(data);
     }
   };
@@ -48,7 +47,7 @@ class App extends React.Component {
       return (
         <div className="overall">
           <div className="customContainer">
-            <h1>Alternate Tube</h1>
+            <h1>Youtube Clone</h1>
             <Search onSubmit={this.searchDate} />
           </div>
         </div>

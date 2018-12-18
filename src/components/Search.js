@@ -5,7 +5,6 @@ class Search extends React.Component {
 
   input = e => {
     e.preventDefault();
-
     this.props.onSubmit(this.state.searchTerm);
   };
 
