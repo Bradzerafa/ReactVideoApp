@@ -1,25 +1,33 @@
 import React from "react";
 
-const VideoItem = ({ video }) => {
-  return (
-    <div>
-      <div className="ui divided items video-card">
-        <div className="item card-pos">
-          <div className="image">
-            <img src={video.snippet.thumbnails.default.url} alt="hello" />
-          </div>
-          <div className="content video-text">
-            <a className="header" href="#">
-              {video.snippet.title}
-            </a>
-            <div className="description">
-              <p>{video.snippet.description} </p>
+let videoConfirm = false;
+
+const VideoItem = ({ video, onVideoSelect }) => {
+  if (videoConfirm === false) {
+    return (
+      <div>
+        <div className="ui divided items ">
+          <div className="item ">
+            <div className="image">
+              <img
+                src={video.snippet.thumbnails.default.url}
+                alt={video.snippet.title}
+              />
+            </div>
+            <div className="content">
+              <h4
+                className="header"
+                href="#"
+                onClick={() => onVideoSelect(video)}
+              >
+                {video.snippet.title}
+              </h4>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default VideoItem;

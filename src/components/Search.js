@@ -12,7 +12,7 @@ class Search extends React.Component {
   render() {
     return (
       <form
-        className=" ui input massive focus search-input "
+        className=" ui input massive focus search-input fluid "
         onSubmit={this.input}
       >
         <input

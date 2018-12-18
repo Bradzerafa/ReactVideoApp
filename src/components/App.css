@@ -5,49 +5,27 @@
   justify-items: center;
 }
 
-.container {
+.customContainer {
   text-align: center;
   grid-row: 1/2;
-  grid-column: 1/2;
   align-self: center;
+  width: 20%;
 }
 
-.container h1 {
+.customContainer h1 {
   font-size: 45px;
-  padding-bottom: 5%;
 }
 
 /* After video list renders */
 
-.container-videos {
-  text-align: center;
-  display: grid;
-  grid-template-rows: auto 100%;
-  grid-template-columns: 100vw;
-}
-
 .search-bar__videos {
-  grid-row: 1/2;
-  grid-column: 1/2;
   margin: 4% 0 5% 0;
 }
 
-.video-listing {
-  grid-row: 2/3;
-  justify-self: center;
-  display: flex;
-  flex-direction: column;
+.ui.items:first-child {
+  margin-bottom: 2.5% !important;
 }
 
-.video-text {
-  align-self: center;
-}
-
-.video-card {
-  text-align: left;
-  width: 75%;
-}
-
-.card-pos {
-  margin: 0 12.5% !important;
+.ui.grid > .row {
+  padding-bottom: 0;
 }

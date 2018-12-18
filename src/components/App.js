@@ -1,21 +1,17 @@
 import React from "react";
 import Search from "./Search";
+import VideoDetail from "./VideoDetail";
 import VideoList from "./VideoList";
 import axios from "axios";
 import "./App.css";
 
 // ENTER API KEY HERE!!!
-const apiKey = "";
+const apiKey = "AIzaSyBkABCSZyUdoajAH1tTvgE7o2OnlcnxkAI";
 
 class App extends React.Component {
   state = {
     videos: [],
-    thumbnail: "",
-    title: "",
-    description: "",
-    date: null,
-    link: "",
-    iframe: ""
+    seletedVideo: null
   };
 
   apiCall = searchWord => {
@@ -39,20 +35,18 @@ class App extends React.Component {
     if (data !== "") {
       this.setState({ searchWord: data });
       this.apiCall(data);
-    } else {
-      console.log("Please enter something into the search bar");
     }
   };
 
-  videoPlayer = data => {
-    this.setState({ iframe: data });
+  onVideoSelect = video => {
+    this.setState({ selectedVideo: video });
   };
 
   render() {
     if (this.state.videos.length === 0) {
       return (
         <div className="overall">
-          <div className="container">
+          <div className="customContainer">
             <h1>Alternate Tube</h1>
             <Search onSubmit={this.searchDate} />
           </div>
@@ -60,27 +54,27 @@ class App extends React.Component {
       );
     }
 
-    if (this.state.videos.length !== 0 && this.state.iframe === "") {
+    if (this.state.videos.length > 0) {
       return (
-        <div className="overall">
-          <div className="container-videos">
-            <div className="search-bar__videos">
-              <Search onSubmit={this.searchDate} />
-            </div>
-            <div className="video-listing">
-              <VideoList videos={this.state.videos} />
-            </div>
-            <div />
+        <div className="ui container">
+          <div className="search-bar__videos">
+            <Search onSubmit={this.searchDate} />
           </div>
-        </div>
-      );
-    }
 
-    if (this.state.iframe !== "") {
-      return (
-        <div>
-          <VideoList />
-          <h1>hello</h1>
+          <div className="ui grid">
+            <div className="ui row">
+              <div className="eleven wide column">
+                <VideoDetail video={this.state.selectedVideo} />
+              </div>
+              <div className="five wide column">
+                <VideoList
+                  onVideoSelect={this.onVideoSelect}
+                  videos={this.state.videos}
+                />
+              </div>
+            </div>
+          </div>
+          <div />
         </div>
       );
     }
