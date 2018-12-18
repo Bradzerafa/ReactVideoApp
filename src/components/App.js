@@ -6,7 +6,7 @@ import axios from "axios";
 import "./App.css";
 
 // ENTER API KEY HERE!!!
-const apiKey = "AIzaSyBkABCSZyUdoajAH1tTvgE7o2OnlcnxkAI";
+const apiKey = "";
 
 class App extends React.Component {
   state = {
