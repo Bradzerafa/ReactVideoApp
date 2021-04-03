@@ -1,8 +1,26 @@
-# ReactVideoApp
-Expanding my knowledge of ReactJS by creating a video app that searches the Youtube API and presents videos under the topic searched 
+`# React Video Finder:
 
+View project: https://objective-fermi-ebe7ac.netlify.app
 
+## Project Description:
 
+The React based video finder allows users to search for videos they want utilising the Youtube API.
 
+## Notable things done:
 
-<b> Note: this is technically a Youtube clone and the app requires you to add your own Youtube API key at the start of App.JS</b>
+- Basic Responsive Design
+- ES6 Syntax
+- ReactJS
+- Youtube API called with AXIOS
+
+## Technologies Used:
+
+### Front-End:
+
+- HTML
+- CSS
+- Javascript (ReactJS)
+
+### Hosting:
+
+- Netlify
