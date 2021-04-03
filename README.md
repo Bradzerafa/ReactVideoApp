@@ -1,4 +1,4 @@
-`# React Video Finder:
+# React Video Finder:
 
 View project: https://objective-fermi-ebe7ac.netlify.app
 
