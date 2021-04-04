@@ -1,6 +1,7 @@
 # React Video Finder:
 
-View project: https://objective-fermi-ebe7ac.netlify.app
+View project: https://objective-fermi-ebe7ac.netlify.app 
+- App currently needs API key to function. 
 
 ## Project Description:
 
