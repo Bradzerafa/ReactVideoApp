@@ -1,7 +1,7 @@
 # React Video Finder:
 
 View project: https://objective-fermi-ebe7ac.netlify.app 
-- App currently needs API key to function. 
+- Youtube API key needed to make the app work.  
 
 ## Project Description:
 
